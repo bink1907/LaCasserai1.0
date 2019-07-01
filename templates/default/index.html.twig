@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel La Casserai{% endblock %}
+
+{% block body %}
+<style>
+    .masthead {
+        height: 100vh;
+        min-height: 500px;
+        background-image: url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .date-input {
+        float: left;
+    }
+    .date-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .booking-container {
+        margin-top: -60px;
+    }
+    .button-yellow {
+        background-color: #f4bc34;
+        padding: 10px 60px;
+        margin-top: -5px;
+        letter-spacing: 1px;
+        font-size: 1.14286rem;
+        font-weight: 500;
+    }
+    form {
+        letter-spacing: 1px;
+        font-size: 1.14286rem;
+        font-weight: 500;
+    }
+    {# input#date {
+        height: 45px !important;
+    }
+    .input-group {
+        height: 45px !important;
+    } #}
+        .button-yellow:hover {
+        background: linear-gradient(to bottom, #f4bc34 0%, #c19323 100%);
+    }
+    /*** Responsive Styles Smartphone Only ***/
+    @media all and (max-width: 767px) {
+    .masthead {
+        height: 500px !important;
+        min-height: 300px;
+    }
+    .button-yellow {
+        margin-top: 30px;
+    }
+    /*** Responsive Styles Tablet Only ***/
+    @media all and (min-width: 768px) and (max-width: 980px) {
+        .button-yellow {
+            margin-top: 30px;
+        }
+        button.btn.button-yellow.mx-auto {
+            margin-top: 30px;
+        }
+    }
+        /*** Responsive Styles Tablet Only ***/
+    @media all and (min-width: 770px) and (max-width: 1000px) {
+        .input-group {
+            margin-bottom: 30px;
+        }
+    }
+}
+</style>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-bold text-white" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Hotel La Casserai</h1>
+                {# <p class="lead">A great starter layout for a landing page</p> #}
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Room Search -->
+<div class="container date-container bg-light pt-4 pb-1 border rounded booking-container">
+    <form class="w-100 pl-5 pr-5">
+        <div class="form-group row">
+            <label for="date" class="col-sm-10 col-md-10 col-lg-2 col-form-label">Check In</label> 
+            <div class="col-sm-10 col-md-10 col-lg-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    </div> 
+                    <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" class="form-control">
+                </div>
+            </div>
+            <label for="date" class="col-sm-10 col-md-10 col-lg-2 col-form-label">Check Out</label> 
+            <div class="col-sm-10 col-md-10 col-lg-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    </div> 
+                    <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-2 booking-button mb-sm-3">
+                <div class="input-group">
+                    <button name="submit" type="submit" class="btn button-yellow mx-auto">Search</button>
+                </div>
+            </div>
+        </div> 
+        {# <div class="form-group row">
+            <div class="col-12" style="display: flex; justify-content: center; align-items: center;">
+                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div> #}
+    </form>
+</div>
+
+<!-- Page Content -->
+<section class="py-5 ">
+    <div class="container">
+        <h2 class="font-weight-light">Page Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
+    </div>
+</section>
+<div class="container">
+    <hr class="mt-2 mb-5">
+    <div class="row text-center text-lg-left">
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260" alt="">
+                <h4 class="font-weight-light lead">Test</h4>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+ 
+{% endblock %}
+{% block javascripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            $('.js-datepicker').datepicker();
+        });
+    </script>
+{% endblock %}
