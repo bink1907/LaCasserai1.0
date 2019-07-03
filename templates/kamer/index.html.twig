@@ -8,33 +8,47 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Prijs</th>
+                <th>Room</th>
+                <th>Kind</th>
+                <th>Description</th>
+                <th>Price per night</th>
+                <th> </th>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-success submit" href="{{ path('kamer_new') }}">Create new</a>
+        {% endif %}
         {% for kamer in kamers %}
             <tr>
+
+                <br>
+                <br>
+
+
                 <td>{{ kamer.id }}</td>
+                <td>{{ kamer.soortId }}</td>
+                <td>{{ kamer.description }}</td>
                 <td>{{ kamer.prijs }}</td>
+                <td> <a class="btn btn-warning submit" href=/reservering>Book</a> </td>
+
+                {% if is_granted('ROLE_ADMIN') %}
+
                 <td>
-                    <a href="{{ path('kamer_show', {'id': kamer.id}) }}">show</a>
-                    <a href="{{ path('kamer_edit', {'id': kamer.id}) }}">edit</a>
+                    <a class="btn btn-success submit" href="{{ path('kamer_show', {'id': kamer.id}) }}">Show</a>
+                    <a class="btn btn-warning submit" href="{{ path('kamer_edit', {'id': kamer.id}) }}">Edit</a>
                 </td>
+                {% endif %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('kamer_new') }}">Create new</a>
-    <form action="{{ path('kamer_check') }}" method="post">
-    <input type="date" name="BeginDate">
-    <input type="date" name="EndDate">
-    <input type="submit" name="submit">
-</form>
 {% endblock %}

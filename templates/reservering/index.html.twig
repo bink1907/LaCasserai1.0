@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservering index{% endblock %}
+
+{% block body %}
+    <h1>Reservering index</h1>
+{% if is_granted('ROLE_ADMIN') %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CheckInDate</th>
+                <th>CheckOutDate</th>
+                <th>BetaalId</th>
+                <th>BetaalMethode</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <a class="btn btn-success submit" href="{{ path('reservering_new') }}">Create new</a>
+<br>
+<br>
+        <tbody>
+        {% for reservering in reserverings %}
+            <tr>
+                <td>{{ reservering.id }}</td>
+                <td>{{ reservering.checkInDate ? reservering.checkInDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservering.checkOutDate ? reservering.checkOutDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservering.betaalId }}</td>
+                <td>{{ reservering.betaalMethode }}</td>
+
+                <td>
+                    <a class="btn btn-success" href="{{ path('reservering_show', {'id': reservering.id}) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('reservering_edit', {'id': reservering.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"><b>No records found</b></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}
